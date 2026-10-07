@@ -1,0 +1,6 @@
+{
+  "name": "KlinikKu",
+  "description": "Sistem booking jadwal dokter, antrean klinik real-time, paket medical checkup, dan manajemen reservasi pasien terpadu.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

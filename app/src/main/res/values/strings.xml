@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">KlinikKu</string>
+    <string name="nav_home">Beranda</string>
+    <string name="nav_doctors">Dokter &amp; Poli</string>
+    <string name="nav_bookings">Jadwal Saya</string>
+    <string name="nav_queue">Antrean &amp; MCU</string>
+    <string name="nav_patients">Pasien</string>
+    <string name="hero_subtitle">Klinik Pratama &amp; Spesialis Terpadu</string>
+    <string name="hero_title">Reservasi Cepat Tanpa Antre Lama</string>
+    <string name="cta_new_booking">Buat Reservasi Baru</string>
+    <string name="search_doctor_hint">Cari nama dokter, poli, atau keluhan…</string>
+    <string name="empty_bookings_title">Belum Ada Reservasi</string>
+    <string name="empty_bookings_desc">Pilih dokter spesialis atau poli umum untuk membuat jadwal kunjungan klinik.</string>
+    <string name="booking_success_title">Reservasi Berhasil Dibuat!</string>
+    <string name="checkin_success">Check-in berhasil! Nomor antrean Anda telah aktif di layar poli.</string>
+    <string name="cancel_booking">Batalkan Reservasi</string>
+    <string name="reschedule_booking">Ubah Jadwal</string>
+</resources>

@@ -1,0 +1,2137 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 5,
+    "identityHash": "42ecdc5f1fd186abf73be23b33ca60e8",
+    "entities": [
+      {
+        "tableName": "doctors",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `name` TEXT NOT NULL, `polyclinic` TEXT NOT NULL, `specialtyTitle` TEXT NOT NULL, `strNumber` TEXT NOT NULL, `experienceYears` INTEGER NOT NULL, `consultationFee` INTEGER NOT NULL, `rating` REAL NOT NULL, `reviewCount` INTEGER NOT NULL, `roomNumber` TEXT NOT NULL, `availableDays` TEXT NOT NULL, `timeSlots` TEXT NOT NULL, `dailyQuota` INTEGER NOT NULL, `acceptsBpjs` INTEGER NOT NULL, `bio` TEXT NOT NULL, `avatarColorHex` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "polyclinic",
+            "columnName": "polyclinic",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "specialtyTitle",
+            "columnName": "specialtyTitle",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "strNumber",
+            "columnName": "strNumber",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "experienceYears",
+            "columnName": "experienceYears",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "consultationFee",
+            "columnName": "consultationFee",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "rating",
+            "columnName": "rating",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "reviewCount",
+            "columnName": "reviewCount",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "roomNumber",
+            "columnName": "roomNumber",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "availableDays",
+            "columnName": "availableDays",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "timeSlots",
+            "columnName": "timeSlots",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "dailyQuota",
+            "columnName": "dailyQuota",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "acceptsBpjs",
+            "columnName": "acceptsBpjs",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "bio",
+            "columnName": "bio",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "avatarColorHex",
+            "columnName": "avatarColorHex",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        }
+      },
+      {
+        "tableName": "patients",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `fullName` TEXT NOT NULL, `nik` TEXT NOT NULL, `medicalRecordNumber` TEXT NOT NULL, `birthDate` TEXT NOT NULL, `gender` TEXT NOT NULL, `bloodType` TEXT NOT NULL, `phone` TEXT NOT NULL, `paymentMethodDefault` TEXT NOT NULL, `bpjsOrInsuranceNumber` TEXT NOT NULL, `allergies` TEXT NOT NULL, `relationship` TEXT NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "fullName",
+            "columnName": "fullName",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "nik",
+            "columnName": "nik",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "medicalRecordNumber",
+            "columnName": "medicalRecordNumber",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "birthDate",
+            "columnName": "birthDate",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "gender",
+            "columnName": "gender",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "bloodType",
+            "columnName": "bloodType",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "phone",
+            "columnName": "phone",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "paymentMethodDefault",
+            "columnName": "paymentMethodDefault",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "bpjsOrInsuranceNumber",
+            "columnName": "bpjsOrInsuranceNumber",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "allergies",
+            "columnName": "allergies",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "relationship",
+            "columnName": "relationship",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        }
+      },
+      {
+        "tableName": "bookings",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `bookingCode` TEXT NOT NULL, `queueNumber` TEXT NOT NULL, `queueOrder` INTEGER NOT NULL, `patientId` INTEGER NOT NULL, `patientName` TEXT NOT NULL, `patientRm` TEXT NOT NULL, `doctorId` INTEGER NOT NULL, `doctorName` TEXT NOT NULL, `polyclinic` TEXT NOT NULL, `roomNumber` TEXT NOT NULL, `appointmentDate` TEXT NOT NULL, `appointmentTime` TEXT NOT NULL, `bookingType` TEXT NOT NULL, `packageName` TEXT NOT NULL, `symptomsOrNotes` TEXT NOT NULL, `paymentType` TEXT NOT NULL, `totalCost` INTEGER NOT NULL, `status` TEXT NOT NULL, `estimatedTurnTime` TEXT NOT NULL, `clinicalSummary` TEXT NOT NULL, `createdAt` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "bookingCode",
+            "columnName": "bookingCode",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "queueNumber",
+            "columnName": "queueNumber",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "queueOrder",
+            "columnName": "queueOrder",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "patientId",
+            "columnName": "patientId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "patientName",
+            "columnName": "patientName",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "patientRm",
+            "columnName": "patientRm",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "doctorId",
+            "columnName": "doctorId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "doctorName",
+            "columnName": "doctorName",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "polyclinic",
+            "columnName": "polyclinic",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "roomNumber",
+            "columnName": "roomNumber",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "appointmentDate",
+            "columnName": "appointmentDate",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "appointmentTime",
+            "columnName": "appointmentTime",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "bookingType",
+            "columnName": "bookingType",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "packageName",
+            "columnName": "packageName",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "symptomsOrNotes",
+            "columnName": "symptomsOrNotes",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "paymentType",
+            "columnName": "paymentType",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "totalCost",
+            "columnName": "totalCost",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "status",
+            "columnName": "status",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "estimatedTurnTime",
+            "columnName": "estimatedTurnTime",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "clinicalSummary",
+            "columnName": "clinicalSummary",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "createdAt",
+            "columnName": "createdAt",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        }
+      },
+      {
+        "tableName": "mcu_packages",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `title` TEXT NOT NULL, `category` TEXT NOT NULL, `price` INTEGER NOT NULL, `originalPrice` INTEGER NOT NULL, `durationMinutes` INTEGER NOT NULL, `preparationNote` TEXT NOT NULL, `includedTests` TEXT NOT NULL, `assignedDoctorId` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "title",
+            "columnName": "title",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "category",
+            "columnName": "category",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "price",
+            "columnName": "price",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "originalPrice",
+            "columnName": "originalPrice",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "durationMinutes",
+            "columnName": "durationMinutes",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "preparationNote",
+            "columnName": "preparationNote",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "includedTests",
+            "columnName": "includedTests",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "assignedDoctorId",
+            "columnName": "assignedDoctorId",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        }
+      },
+      {
+        "tableName": "polyclinic_queues",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`polyclinic` TEXT NOT NULL, `prefixCode` TEXT NOT NULL, `currentNumber` INTEGER NOT NULL, `totalIssuedToday` INTEGER NOT NULL, `roomNumber` TEXT NOT NULL, `activeDoctorName` TEXT NOT NULL, `avgMinutesPerPatient` INTEGER NOT NULL, PRIMARY KEY(`polyclinic`))",
+        "fields": [
+          {
+            "fieldPath": "polyclinic",
+            "columnName": "polyclinic",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "prefixCode",
+            "columnName": "prefixCode",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "currentNumber",
+            "columnName": "currentNumber",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "totalIssuedToday",
+            "columnName": "totalIssuedToday",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "roomNumber",
+            "columnName": "roomNumber",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "activeDoctorName",
+            "columnName": "activeDoctorName",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "avgMinutesPerPatient",
+            "columnName": "avgMinutesPerPatient",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "polyclinic"
+          ]
+        }
+      },
+      {
+        "tableName": "saas_tenants",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`tenantId` TEXT NOT NULL, `clinicName` TEXT NOT NULL, `clinicType` TEXT NOT NULL, `city` TEXT NOT NULL, `defaultZoneCode` TEXT NOT NULL, `subscriptionPlan` TEXT NOT NULL, `subscriptionActive` INTEGER NOT NULL, `monthlyFeeIdr` INTEGER NOT NULL, `noShowGraceMinutes` INTEGER NOT NULL, `isHolidayClosed` INTEGER NOT NULL, PRIMARY KEY(`tenantId`))",
+        "fields": [
+          {
+            "fieldPath": "tenantId",
+            "columnName": "tenantId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "clinicName",
+            "columnName": "clinicName",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "clinicType",
+            "columnName": "clinicType",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "city",
+            "columnName": "city",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "defaultZoneCode",
+            "columnName": "defaultZoneCode",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "subscriptionPlan",
+            "columnName": "subscriptionPlan",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "subscriptionActive",
+            "columnName": "subscriptionActive",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "monthlyFeeIdr",
+            "columnName": "monthlyFeeIdr",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "noShowGraceMinutes",
+            "columnName": "noShowGraceMinutes",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "isHolidayClosed",
+            "columnName": "isHolidayClosed",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "tenantId"
+          ]
+        }
+      },
+      {
+        "tableName": "saas_schedule_rules",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `tenantId` TEXT NOT NULL, `doctorId` INTEGER NOT NULL, `doctorName` TEXT NOT NULL, `serviceUnit` TEXT NOT NULL, `workStartHour` INTEGER NOT NULL, `workEndHour` INTEGER NOT NULL, `breakStartHour` INTEGER NOT NULL, `breakEndHour` INTEGER NOT NULL, `slotDurationMinutes` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "tenantId",
+            "columnName": "tenantId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "doctorId",
+            "columnName": "doctorId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "doctorName",
+            "columnName": "doctorName",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "serviceUnit",
+            "columnName": "serviceUnit",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "workStartHour",
+            "columnName": "workStartHour",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "workEndHour",
+            "columnName": "workEndHour",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "breakStartHour",
+            "columnName": "breakStartHour",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "breakEndHour",
+            "columnName": "breakEndHour",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "slotDurationMinutes",
+            "columnName": "slotDurationMinutes",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        }
+      },
+      {
+        "tableName": "saas_phase1_reservations",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `bookingRef` TEXT NOT NULL, `tenantId` TEXT NOT NULL, `doctorId` INTEGER NOT NULL, `doctorName` TEXT NOT NULL, `serviceUnit` TEXT NOT NULL, `patientPhoneHash` TEXT NOT NULL, `patientDisplayName` TEXT NOT NULL, `visitCategory` TEXT NOT NULL, `slotStartUtcMillis` INTEGER NOT NULL, `slotEndUtcMillis` INTEGER NOT NULL, `queueCode` TEXT NOT NULL, `status` TEXT NOT NULL, `activeLockKey` INTEGER NOT NULL, `pdpConsentVersion` TEXT NOT NULL, `pdpConsentTimestampUtc` INTEGER NOT NULL, `createdAtUtcMillis` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "bookingRef",
+            "columnName": "bookingRef",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "tenantId",
+            "columnName": "tenantId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "doctorId",
+            "columnName": "doctorId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "doctorName",
+            "columnName": "doctorName",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "serviceUnit",
+            "columnName": "serviceUnit",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "patientPhoneHash",
+            "columnName": "patientPhoneHash",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "patientDisplayName",
+            "columnName": "patientDisplayName",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "visitCategory",
+            "columnName": "visitCategory",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "slotStartUtcMillis",
+            "columnName": "slotStartUtcMillis",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "slotEndUtcMillis",
+            "columnName": "slotEndUtcMillis",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "queueCode",
+            "columnName": "queueCode",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "status",
+            "columnName": "status",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "activeLockKey",
+            "columnName": "activeLockKey",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "pdpConsentVersion",
+            "columnName": "pdpConsentVersion",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "pdpConsentTimestampUtc",
+            "columnName": "pdpConsentTimestampUtc",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "createdAtUtcMillis",
+            "columnName": "createdAtUtcMillis",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_saas_phase1_reservations_tenantId_doctorId_slotStartUtcMillis_activeLockKey",
+            "unique": true,
+            "columnNames": [
+              "tenantId",
+              "doctorId",
+              "slotStartUtcMillis",
+              "activeLockKey"
+            ],
+            "orders": [],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_saas_phase1_reservations_tenantId_doctorId_slotStartUtcMillis_activeLockKey` ON `${TABLE_NAME}` (`tenantId`, `doctorId`, `slotStartUtcMillis`, `activeLockKey`)"
+          }
+        ]
+      },
+      {
+        "tableName": "saas_audit_logs",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `tenantId` TEXT NOT NULL, `actorRole` TEXT NOT NULL, `actorName` TEXT NOT NULL, `actionType` TEXT NOT NULL, `targetResource` TEXT NOT NULL, `ipOrDeviceNote` TEXT NOT NULL, `timestampUtcMillis` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "tenantId",
+            "columnName": "tenantId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "actorRole",
+            "columnName": "actorRole",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "actorName",
+            "columnName": "actorName",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "actionType",
+            "columnName": "actionType",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "targetResource",
+            "columnName": "targetResource",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "ipOrDeviceNote",
+            "columnName": "ipOrDeviceNote",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "timestampUtcMillis",
+            "columnName": "timestampUtcMillis",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        }
+      },
+      {
+        "tableName": "saas_phase2_invoices",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `invoiceNumber` TEXT NOT NULL, `tenantId` TEXT NOT NULL, `bookingRef` TEXT NOT NULL, `patientName` TEXT NOT NULL, `familyRelation` TEXT NOT NULL, `doctorName` TEXT NOT NULL, `serviceUnit` TEXT NOT NULL, `paymentTypeLabel` TEXT NOT NULL, `paymentChannel` TEXT NOT NULL, `totalConsultationFee` INTEGER NOT NULL, `billedAmount` INTEGER NOT NULL, `status` TEXT NOT NULL, `idempotencyKey` TEXT NOT NULL, `webhookCallbackCount` INTEGER NOT NULL, `expiresAtUtcMillis` INTEGER NOT NULL, `paidAtUtcMillis` INTEGER, `createdAtUtcMillis` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "invoiceNumber",
+            "columnName": "invoiceNumber",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "tenantId",
+            "columnName": "tenantId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "bookingRef",
+            "columnName": "bookingRef",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "patientName",
+            "columnName": "patientName",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "familyRelation",
+            "columnName": "familyRelation",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "doctorName",
+            "columnName": "doctorName",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "serviceUnit",
+            "columnName": "serviceUnit",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "paymentTypeLabel",
+            "columnName": "paymentTypeLabel",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "paymentChannel",
+            "columnName": "paymentChannel",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "totalConsultationFee",
+            "columnName": "totalConsultationFee",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "billedAmount",
+            "columnName": "billedAmount",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "status",
+            "columnName": "status",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "idempotencyKey",
+            "columnName": "idempotencyKey",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "webhookCallbackCount",
+            "columnName": "webhookCallbackCount",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "expiresAtUtcMillis",
+            "columnName": "expiresAtUtcMillis",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "paidAtUtcMillis",
+            "columnName": "paidAtUtcMillis",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "createdAtUtcMillis",
+            "columnName": "createdAtUtcMillis",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_saas_phase2_invoices_idempotencyKey",
+            "unique": true,
+            "columnNames": [
+              "idempotencyKey"
+            ],
+            "orders": [],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_saas_phase2_invoices_idempotencyKey` ON `${TABLE_NAME}` (`idempotencyKey`)"
+          },
+          {
+            "name": "index_saas_phase2_invoices_tenantId_bookingRef",
+            "unique": false,
+            "columnNames": [
+              "tenantId",
+              "bookingRef"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_saas_phase2_invoices_tenantId_bookingRef` ON `${TABLE_NAME}` (`tenantId`, `bookingRef`)"
+          }
+        ]
+      },
+      {
+        "tableName": "saas_phase2_chats",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `tenantId` TEXT NOT NULL, `bookingRef` TEXT NOT NULL, `senderRole` TEXT NOT NULL, `senderName` TEXT NOT NULL, `messageText` TEXT NOT NULL, `hasPrivacyWarning` INTEGER NOT NULL, `isReadByRecipient` INTEGER NOT NULL, `createdAtUtcMillis` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "tenantId",
+            "columnName": "tenantId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "bookingRef",
+            "columnName": "bookingRef",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "senderRole",
+            "columnName": "senderRole",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "senderName",
+            "columnName": "senderName",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "messageText",
+            "columnName": "messageText",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "hasPrivacyWarning",
+            "columnName": "hasPrivacyWarning",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "isReadByRecipient",
+            "columnName": "isReadByRecipient",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "createdAtUtcMillis",
+            "columnName": "createdAtUtcMillis",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_saas_phase2_chats_tenantId_createdAtUtcMillis",
+            "unique": false,
+            "columnNames": [
+              "tenantId",
+              "createdAtUtcMillis"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_saas_phase2_chats_tenantId_createdAtUtcMillis` ON `${TABLE_NAME}` (`tenantId`, `createdAtUtcMillis`)"
+          }
+        ]
+      },
+      {
+        "tableName": "saas_phase2_reviews",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `tenantId` TEXT NOT NULL, `bookingRef` TEXT NOT NULL, `doctorName` TEXT NOT NULL, `serviceUnit` TEXT NOT NULL, `patientDisplayName` TEXT NOT NULL, `maskPatientName` INTEGER NOT NULL, `ratingStars` INTEGER NOT NULL, `reviewComment` TEXT NOT NULL, `clinicOfficialReply` TEXT NOT NULL, `createdAtUtcMillis` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "tenantId",
+            "columnName": "tenantId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "bookingRef",
+            "columnName": "bookingRef",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "doctorName",
+            "columnName": "doctorName",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "serviceUnit",
+            "columnName": "serviceUnit",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "patientDisplayName",
+            "columnName": "patientDisplayName",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "maskPatientName",
+            "columnName": "maskPatientName",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "ratingStars",
+            "columnName": "ratingStars",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "reviewComment",
+            "columnName": "reviewComment",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "clinicOfficialReply",
+            "columnName": "clinicOfficialReply",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "createdAtUtcMillis",
+            "columnName": "createdAtUtcMillis",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_saas_phase2_reviews_tenantId_bookingRef",
+            "unique": true,
+            "columnNames": [
+              "tenantId",
+              "bookingRef"
+            ],
+            "orders": [],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_saas_phase2_reviews_tenantId_bookingRef` ON `${TABLE_NAME}` (`tenantId`, `bookingRef`)"
+          }
+        ]
+      },
+      {
+        "tableName": "saas_phase3_emr_soap",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `encounterCode` TEXT NOT NULL, `tenantId` TEXT NOT NULL, `bookingRef` TEXT NOT NULL, `patientName` TEXT NOT NULL, `patientRm` TEXT NOT NULL, `patientAllergies` TEXT NOT NULL, `doctorName` TEXT NOT NULL, `polyclinic` TEXT NOT NULL, `bloodPressureMmHg` TEXT NOT NULL, `heartRateBpm` INTEGER NOT NULL, `temperatureCelsius` REAL NOT NULL, `weightKg` REAL NOT NULL, `subjectiveText` TEXT NOT NULL, `objectiveText` TEXT NOT NULL, `icd10Code` TEXT NOT NULL, `assessmentDiagnosis` TEXT NOT NULL, `planTherapy` TEXT NOT NULL, `addendumNotes` TEXT NOT NULL, `isSignedLocked` INTEGER NOT NULL, `encryptedCipherPreview` TEXT NOT NULL, `retentionUntilYear` INTEGER NOT NULL, `satusehatEncounterRef` TEXT NOT NULL, `createdAtUtcMillis` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "encounterCode",
+            "columnName": "encounterCode",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "tenantId",
+            "columnName": "tenantId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "bookingRef",
+            "columnName": "bookingRef",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "patientName",
+            "columnName": "patientName",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "patientRm",
+            "columnName": "patientRm",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "patientAllergies",
+            "columnName": "patientAllergies",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "doctorName",
+            "columnName": "doctorName",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "polyclinic",
+            "columnName": "polyclinic",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "bloodPressureMmHg",
+            "columnName": "bloodPressureMmHg",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "heartRateBpm",
+            "columnName": "heartRateBpm",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "temperatureCelsius",
+            "columnName": "temperatureCelsius",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "weightKg",
+            "columnName": "weightKg",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "subjectiveText",
+            "columnName": "subjectiveText",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "objectiveText",
+            "columnName": "objectiveText",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "icd10Code",
+            "columnName": "icd10Code",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "assessmentDiagnosis",
+            "columnName": "assessmentDiagnosis",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "planTherapy",
+            "columnName": "planTherapy",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "addendumNotes",
+            "columnName": "addendumNotes",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "isSignedLocked",
+            "columnName": "isSignedLocked",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "encryptedCipherPreview",
+            "columnName": "encryptedCipherPreview",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "retentionUntilYear",
+            "columnName": "retentionUntilYear",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "satusehatEncounterRef",
+            "columnName": "satusehatEncounterRef",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "createdAtUtcMillis",
+            "columnName": "createdAtUtcMillis",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_saas_phase3_emr_soap_encounterCode",
+            "unique": true,
+            "columnNames": [
+              "encounterCode"
+            ],
+            "orders": [],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_saas_phase3_emr_soap_encounterCode` ON `${TABLE_NAME}` (`encounterCode`)"
+          },
+          {
+            "name": "index_saas_phase3_emr_soap_tenantId_patientRm",
+            "unique": false,
+            "columnNames": [
+              "tenantId",
+              "patientRm"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_saas_phase3_emr_soap_tenantId_patientRm` ON `${TABLE_NAME}` (`tenantId`, `patientRm`)"
+          }
+        ]
+      },
+      {
+        "tableName": "saas_phase3_prescriptions",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `rxNumber` TEXT NOT NULL, `tenantId` TEXT NOT NULL, `encounterCode` TEXT NOT NULL, `patientName` TEXT NOT NULL, `patientAllergies` TEXT NOT NULL, `doctorName` TEXT NOT NULL, `medicationListPipe` TEXT NOT NULL, `hasAllergyConflict` INTEGER NOT NULL, `allergyWarningMessage` TEXT NOT NULL, `pharmacyStatus` TEXT NOT NULL, `createdAtUtcMillis` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "rxNumber",
+            "columnName": "rxNumber",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "tenantId",
+            "columnName": "tenantId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "encounterCode",
+            "columnName": "encounterCode",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "patientName",
+            "columnName": "patientName",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "patientAllergies",
+            "columnName": "patientAllergies",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "doctorName",
+            "columnName": "doctorName",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "medicationListPipe",
+            "columnName": "medicationListPipe",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "hasAllergyConflict",
+            "columnName": "hasAllergyConflict",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "allergyWarningMessage",
+            "columnName": "allergyWarningMessage",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "pharmacyStatus",
+            "columnName": "pharmacyStatus",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "createdAtUtcMillis",
+            "columnName": "createdAtUtcMillis",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_saas_phase3_prescriptions_tenantId_rxNumber",
+            "unique": true,
+            "columnNames": [
+              "tenantId",
+              "rxNumber"
+            ],
+            "orders": [],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_saas_phase3_prescriptions_tenantId_rxNumber` ON `${TABLE_NAME}` (`tenantId`, `rxNumber`)"
+          }
+        ]
+      },
+      {
+        "tableName": "saas_phase3_lab_results",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `labOrderNumber` TEXT NOT NULL, `tenantId` TEXT NOT NULL, `encounterCode` TEXT NOT NULL, `patientName` TEXT NOT NULL, `doctorName` TEXT NOT NULL, `panelCategory` TEXT NOT NULL, `loincCode` TEXT NOT NULL, `parameterName` TEXT NOT NULL, `resultValue` TEXT NOT NULL, `unit` TEXT NOT NULL, `referenceRange` TEXT NOT NULL, `flagStatus` TEXT NOT NULL, `createdAtUtcMillis` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "labOrderNumber",
+            "columnName": "labOrderNumber",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "tenantId",
+            "columnName": "tenantId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "encounterCode",
+            "columnName": "encounterCode",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "patientName",
+            "columnName": "patientName",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "doctorName",
+            "columnName": "doctorName",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "panelCategory",
+            "columnName": "panelCategory",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "loincCode",
+            "columnName": "loincCode",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "parameterName",
+            "columnName": "parameterName",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "resultValue",
+            "columnName": "resultValue",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "unit",
+            "columnName": "unit",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "referenceRange",
+            "columnName": "referenceRange",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "flagStatus",
+            "columnName": "flagStatus",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "createdAtUtcMillis",
+            "columnName": "createdAtUtcMillis",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_saas_phase3_lab_results_tenantId_labOrderNumber",
+            "unique": false,
+            "columnNames": [
+              "tenantId",
+              "labOrderNumber"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_saas_phase3_lab_results_tenantId_labOrderNumber` ON `${TABLE_NAME}` (`tenantId`, `labOrderNumber`)"
+          }
+        ]
+      },
+      {
+        "tableName": "saas_phase3_certificates",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `certificateNumber` TEXT NOT NULL, `tenantId` TEXT NOT NULL, `encounterCode` TEXT NOT NULL, `certificateType` TEXT NOT NULL, `patientName` TEXT NOT NULL, `patientRm` TEXT NOT NULL, `doctorName` TEXT NOT NULL, `restDaysCount` INTEGER NOT NULL, `validPeriodText` TEXT NOT NULL, `medicalConclusion` TEXT NOT NULL, `digitalSignatureHash` TEXT NOT NULL, `createdAtUtcMillis` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "certificateNumber",
+            "columnName": "certificateNumber",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "tenantId",
+            "columnName": "tenantId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "encounterCode",
+            "columnName": "encounterCode",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "certificateType",
+            "columnName": "certificateType",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "patientName",
+            "columnName": "patientName",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "patientRm",
+            "columnName": "patientRm",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "doctorName",
+            "columnName": "doctorName",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "restDaysCount",
+            "columnName": "restDaysCount",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "validPeriodText",
+            "columnName": "validPeriodText",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "medicalConclusion",
+            "columnName": "medicalConclusion",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "digitalSignatureHash",
+            "columnName": "digitalSignatureHash",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "createdAtUtcMillis",
+            "columnName": "createdAtUtcMillis",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_saas_phase3_certificates_tenantId_certificateNumber",
+            "unique": true,
+            "columnNames": [
+              "tenantId",
+              "certificateNumber"
+            ],
+            "orders": [],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_saas_phase3_certificates_tenantId_certificateNumber` ON `${TABLE_NAME}` (`tenantId`, `certificateNumber`)"
+          }
+        ]
+      },
+      {
+        "tableName": "saas_phase3_teleconsults",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `sessionCode` TEXT NOT NULL, `tenantId` TEXT NOT NULL, `patientName` TEXT NOT NULL, `doctorName` TEXT NOT NULL, `polyclinic` TEXT NOT NULL, `status` TEXT NOT NULL, `clinicalChatTranscript` TEXT NOT NULL, `informedConsentAccepted` INTEGER NOT NULL, `createdAtUtcMillis` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sessionCode",
+            "columnName": "sessionCode",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "tenantId",
+            "columnName": "tenantId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "patientName",
+            "columnName": "patientName",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "doctorName",
+            "columnName": "doctorName",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "polyclinic",
+            "columnName": "polyclinic",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "status",
+            "columnName": "status",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "clinicalChatTranscript",
+            "columnName": "clinicalChatTranscript",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "informedConsentAccepted",
+            "columnName": "informedConsentAccepted",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "createdAtUtcMillis",
+            "columnName": "createdAtUtcMillis",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_saas_phase3_teleconsults_tenantId_sessionCode",
+            "unique": true,
+            "columnNames": [
+              "tenantId",
+              "sessionCode"
+            ],
+            "orders": [],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_saas_phase3_teleconsults_tenantId_sessionCode` ON `${TABLE_NAME}` (`tenantId`, `sessionCode`)"
+          }
+        ]
+      },
+      {
+        "tableName": "saas_phase4_satusehat_outbox",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `fhirBundleId` TEXT NOT NULL, `tenantId` TEXT NOT NULL, `branchCode` TEXT NOT NULL, `encounterCode` TEXT NOT NULL, `patientName` TEXT NOT NULL, `patientIhsNumber` TEXT NOT NULL, `practitionerIhsNumber` TEXT NOT NULL, `resourceTypesSummary` TEXT NOT NULL, `icd10Code` TEXT NOT NULL, `loincCode` TEXT NOT NULL, `kfaCode` TEXT NOT NULL, `generalConsentAccepted` INTEGER NOT NULL, `syncStatus` TEXT NOT NULL, `retryCount` INTEGER NOT NULL, `fhirJsonPreview` TEXT NOT NULL, `lastSyncResponse` TEXT NOT NULL, `updatedAtUtcMillis` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "fhirBundleId",
+            "columnName": "fhirBundleId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "tenantId",
+            "columnName": "tenantId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "branchCode",
+            "columnName": "branchCode",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "encounterCode",
+            "columnName": "encounterCode",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "patientName",
+            "columnName": "patientName",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "patientIhsNumber",
+            "columnName": "patientIhsNumber",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "practitionerIhsNumber",
+            "columnName": "practitionerIhsNumber",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "resourceTypesSummary",
+            "columnName": "resourceTypesSummary",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "icd10Code",
+            "columnName": "icd10Code",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "loincCode",
+            "columnName": "loincCode",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "kfaCode",
+            "columnName": "kfaCode",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "generalConsentAccepted",
+            "columnName": "generalConsentAccepted",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "syncStatus",
+            "columnName": "syncStatus",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "retryCount",
+            "columnName": "retryCount",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "fhirJsonPreview",
+            "columnName": "fhirJsonPreview",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "lastSyncResponse",
+            "columnName": "lastSyncResponse",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "updatedAtUtcMillis",
+            "columnName": "updatedAtUtcMillis",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_saas_phase4_satusehat_outbox_tenantId_fhirBundleId",
+            "unique": true,
+            "columnNames": [
+              "tenantId",
+              "fhirBundleId"
+            ],
+            "orders": [],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_saas_phase4_satusehat_outbox_tenantId_fhirBundleId` ON `${TABLE_NAME}` (`tenantId`, `fhirBundleId`)"
+          },
+          {
+            "name": "index_saas_phase4_satusehat_outbox_encounterCode",
+            "unique": false,
+            "columnNames": [
+              "encounterCode"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_saas_phase4_satusehat_outbox_encounterCode` ON `${TABLE_NAME}` (`encounterCode`)"
+          }
+        ]
+      },
+      {
+        "tableName": "saas_phase4_bpjs_pcare",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `noKunjunganPcare` TEXT NOT NULL, `tenantId` TEXT NOT NULL, `branchCode` TEXT NOT NULL, `patientName` TEXT NOT NULL, `bpjsCardNumber` TEXT NOT NULL, `membershipStatus` TEXT NOT NULL, `poliCodePcare` TEXT NOT NULL, `icd10Diagnosis` TEXT NOT NULL, `serviceStatus` TEXT NOT NULL, `referralHospitalName` TEXT NOT NULL, `claimTariffType` TEXT NOT NULL, `bridgingSyncState` TEXT NOT NULL, `createdAtUtcMillis` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "noKunjunganPcare",
+            "columnName": "noKunjunganPcare",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "tenantId",
+            "columnName": "tenantId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "branchCode",
+            "columnName": "branchCode",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "patientName",
+            "columnName": "patientName",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "bpjsCardNumber",
+            "columnName": "bpjsCardNumber",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "membershipStatus",
+            "columnName": "membershipStatus",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "poliCodePcare",
+            "columnName": "poliCodePcare",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "icd10Diagnosis",
+            "columnName": "icd10Diagnosis",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "serviceStatus",
+            "columnName": "serviceStatus",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "referralHospitalName",
+            "columnName": "referralHospitalName",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "claimTariffType",
+            "columnName": "claimTariffType",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "bridgingSyncState",
+            "columnName": "bridgingSyncState",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "createdAtUtcMillis",
+            "columnName": "createdAtUtcMillis",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_saas_phase4_bpjs_pcare_tenantId_noKunjunganPcare",
+            "unique": true,
+            "columnNames": [
+              "tenantId",
+              "noKunjunganPcare"
+            ],
+            "orders": [],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_saas_phase4_bpjs_pcare_tenantId_noKunjunganPcare` ON `${TABLE_NAME}` (`tenantId`, `noKunjunganPcare`)"
+          }
+        ]
+      },
+      {
+        "tableName": "saas_phase4_pharmacy_inventory",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `tenantId` TEXT NOT NULL, `branchCode` TEXT NOT NULL, `kfaCode` TEXT NOT NULL, `medicationName` TEXT NOT NULL, `dosageForm` TEXT NOT NULL, `batchNumber` TEXT NOT NULL, `expiryDateIso` TEXT NOT NULL, `stockQuantity` INTEGER NOT NULL, `minReorderThreshold` INTEGER NOT NULL, `unitPriceIdr` INTEGER NOT NULL, `updatedAtUtcMillis` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "tenantId",
+            "columnName": "tenantId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "branchCode",
+            "columnName": "branchCode",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "kfaCode",
+            "columnName": "kfaCode",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "medicationName",
+            "columnName": "medicationName",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "dosageForm",
+            "columnName": "dosageForm",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "batchNumber",
+            "columnName": "batchNumber",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "expiryDateIso",
+            "columnName": "expiryDateIso",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "stockQuantity",
+            "columnName": "stockQuantity",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "minReorderThreshold",
+            "columnName": "minReorderThreshold",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "unitPriceIdr",
+            "columnName": "unitPriceIdr",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "updatedAtUtcMillis",
+            "columnName": "updatedAtUtcMillis",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_saas_phase4_pharmacy_inventory_tenantId_branchCode_kfaCode_batchNumber",
+            "unique": true,
+            "columnNames": [
+              "tenantId",
+              "branchCode",
+              "kfaCode",
+              "batchNumber"
+            ],
+            "orders": [],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_saas_phase4_pharmacy_inventory_tenantId_branchCode_kfaCode_batchNumber` ON `${TABLE_NAME}` (`tenantId`, `branchCode`, `kfaCode`, `batchNumber`)"
+          }
+        ]
+      },
+      {
+        "tableName": "saas_phase4_branches",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `tenantId` TEXT NOT NULL, `branchCode` TEXT NOT NULL, `branchName` TEXT NOT NULL, `cityAndProvince` TEXT NOT NULL, `timeZoneCode` TEXT NOT NULL, `satusehatOrgId` TEXT NOT NULL, `bpjsPcareCode` TEXT NOT NULL, `activeDoctorsCount` INTEGER NOT NULL, `monthlyVisitsCount` INTEGER NOT NULL, `avgWaitTimeMinutes` INTEGER NOT NULL, `noShowRatePercent` REAL NOT NULL, `satusehatSyncPercent` INTEGER NOT NULL, `monthlyRevenueIdr` INTEGER NOT NULL, `isCentralBranch` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "tenantId",
+            "columnName": "tenantId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "branchCode",
+            "columnName": "branchCode",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "branchName",
+            "columnName": "branchName",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "cityAndProvince",
+            "columnName": "cityAndProvince",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "timeZoneCode",
+            "columnName": "timeZoneCode",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "satusehatOrgId",
+            "columnName": "satusehatOrgId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "bpjsPcareCode",
+            "columnName": "bpjsPcareCode",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "activeDoctorsCount",
+            "columnName": "activeDoctorsCount",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "monthlyVisitsCount",
+            "columnName": "monthlyVisitsCount",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "avgWaitTimeMinutes",
+            "columnName": "avgWaitTimeMinutes",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "noShowRatePercent",
+            "columnName": "noShowRatePercent",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "satusehatSyncPercent",
+            "columnName": "satusehatSyncPercent",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "monthlyRevenueIdr",
+            "columnName": "monthlyRevenueIdr",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "isCentralBranch",
+            "columnName": "isCentralBranch",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_saas_phase4_branches_tenantId_branchCode",
+            "unique": true,
+            "columnNames": [
+              "tenantId",
+              "branchCode"
+            ],
+            "orders": [],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_saas_phase4_branches_tenantId_branchCode` ON `${TABLE_NAME}` (`tenantId`, `branchCode`)"
+          }
+        ]
+      }
+    ],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '42ecdc5f1fd186abf73be23b33ca60e8')"
+    ]
+  }
+}
